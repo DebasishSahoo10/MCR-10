@@ -13,7 +13,7 @@ export const SideBar = () => {
         flexDirection: "column",
         gap: "40px",
         width: "100%",
-        minHeight: "120vh",
+        minHeight: "1000px",
         paddingTop: "100px",
         alignItems : "center",
         backgroundColor : "#d9f99d"

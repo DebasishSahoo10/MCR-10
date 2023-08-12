@@ -10,7 +10,7 @@ import { NewItemForm } from './Pages/NewItemForm'
 function App() {
   return (
     <div style={{display : "flex"}}>
-      <div style={{width : "15%", height : "100vh"}}>
+      <div style={{width : "15%"}}>
         <SideBar/>
       </div>
       <Routes>

@@ -19,7 +19,7 @@ export const Dashboard = () => {
       style={{
         backgroundColor: "white",
         width: "85%",
-        height: "100vh",
+        minHeight: "1000px",
         color: "black",
         display : "flex",
         flexDirection : "column",
