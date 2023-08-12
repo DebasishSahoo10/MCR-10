@@ -1,9 +1,12 @@
 import { useContext, useState } from "react";
 import { DataContext } from "../Context/DataContext";
 import { v4 as uuid} from "uuid";
+import { useNavigate } from "react-router";
 
 export const NewItemForm = () => {
   const { dispatch } = useContext(DataContext);
+  const navigate = useNavigate()
+  const [Headers, setHeader] = useState("Fill Up Below details")
   const [newItem, setNewItem] = useState({
     id : 0,
     department: "Kitchen",
@@ -17,7 +20,12 @@ export const NewItemForm = () => {
     imageUrl: "",
   });
   const addItem = () => {
-    dispatch({type : "ADD_ITEM", payload : newItem})
+    if (newItem.id === "" || newItem.name === "" || newItem.description === "" || newItem.sku === "" || newItem.supplier === "" || newItem.imageUrl === "") {
+      setHeader("Please Input all the Field")
+    } else {
+      dispatch({type : "ADD_ITEM", payload : newItem})
+      navigate("/products")
+    }
   };
   return (
     <div
@@ -33,7 +41,7 @@ export const NewItemForm = () => {
     >
       <h1 style={{ marginBottom: "0" }}>Add your new Item ✅</h1>
       <div style={{ display: "flex", flexDirection: "column" }}>
-        <h3>Fill Up Below details</h3>
+        <h3>{Headers}</h3>
         <div>
           <label htmlFor="">Department :</label>
           <br />
